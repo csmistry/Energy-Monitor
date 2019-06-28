@@ -19,7 +19,7 @@ architecture Energy_Monitor of LogicalStep_Lab3_top is
 --
 -- Components Used
 ------------------------------------------------------------------- 
-	component Compx4 port(A3, B3, A2, B2, A1, B1, A0, B0: in std_logic_vector(3 downto 0);
+	component Compx4 port(A3, B3, A2, B2, A1, B1, A0, B0: in std_logic;
 		  AGTB: out std_logic;
 		  AEQB: out std_logic;
 		  ALTB: out std_logic);
@@ -30,7 +30,7 @@ architecture Energy_Monitor of LogicalStep_Lab3_top is
 -- Create any signals, or temporary variables to be used
 	
 signal A : std_logic_vector(3 downto 0);
-signal B : std_logic_vector(3 downto 0);
+signal B : std_logic_vector(7 downto 4);
 signal AGTB: std_logic;
 signal AEQB: std_logic;
 signal ALTB: std_logic;
@@ -41,7 +41,7 @@ signal ALTB: std_logic;
 begin
 	A <= sw(3 downto 0);
 	B <= sw(7 downto 4);
-	leds <= AGTB & AEQB & ALTB;
+	leds(2 downto 0) <= AGTB & AEQB & ALTB;
 	INST1 : Compx4 port map (A(3), B(7), A(2), B(6), A(1), B(5), A(0), B(4), AGTB, AEQB, ALTB);
  
 end Energy_Monitor;

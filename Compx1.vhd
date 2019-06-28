@@ -1,8 +1,10 @@
 library IEEE;
-use IEEE.std_logic_1164;
+use IEEE.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity Compx1 is
-	Port(A, B: in std_logic;
+	Port(A: in std_logic;
+		  B: in std_logic;
 		  AGTB: out std_logic;
 		  AEQB: out std_logic;
 		  ALTB: out std_logic);
